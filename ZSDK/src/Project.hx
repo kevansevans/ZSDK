@@ -1,13 +1,14 @@
-package lumps;
+package;
+
+import lumps.game.Gameinfo;
 
 /**
  * ...
  * @author kevansevans
- * 
  */
-class Playpal 
+class Project 
 {
-
+	var GameInfo:Gameinfo;
 	public function new() 
 	{
 		

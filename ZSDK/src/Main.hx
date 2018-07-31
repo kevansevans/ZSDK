@@ -29,8 +29,6 @@ class Main extends Sprite
 		
 		Toolkit.init();
 	}
-	var create_new_project:Button;
-	var new_project_name:Label;
 	function check_directories() 
 	{
 		if (!FileSystem.isDirectory(System.documentsDirectory + "/ZSDK")) FileSystem.createDirectory(System.documentsDirectory + "/ZSDK");

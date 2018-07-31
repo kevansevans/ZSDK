@@ -17,8 +17,17 @@ class Gameinfo extends LumpBase
 	}
 }
 class Cluster extends DefinitionBase {
-	public function new() {
+	public var entertext:Null<String>;
+	public var exittext:Null<String>;
+	public var exittextislump:Bool = false;
+	public var music:Null<String>;
+	public var flat:Null<String>;
+	public var pic:Null<String>;
+	public var hub:Bool = false;
+	public var allowintermission:Bool = false;
+	public function new(_id:Int = 0) {
 		super();
+		id = _id;
 	}
 	
 }

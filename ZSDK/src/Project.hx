@@ -1,6 +1,6 @@
 package;
 
-import lumps.g.Gameinfo;
+import lumps.m.Mapinfo;
 
 /**
  * ...
@@ -8,7 +8,7 @@ import lumps.g.Gameinfo;
  */
 class Project 
 {
-	var GameInfo:Gameinfo;
+	var GameInfo:Mapinfo;
 	public function new() 
 	{
 		

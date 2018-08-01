@@ -1,6 +1,6 @@
 package;
 
-import lumps.g.Gameinfo;
+import lumps.m.Mapinfo;
 import openfl.display.Sprite;
 import lime.system.System;
 import sys.FileSystem;
@@ -30,7 +30,7 @@ class Main extends Sprite
 		
 		Toolkit.init();
 		
-		var gameinfo = new Gameinfo();
+		var mapinfo = new Mapinfo();
 	}
 	function check_directories() 
 	{

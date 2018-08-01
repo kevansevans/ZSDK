@@ -1,4 +1,4 @@
-package lumps.game;
+package lumps.g;
 import flash.Vector;
 
 /**
@@ -6,8 +6,8 @@ import flash.Vector;
  * @author kevansevans
  */
 enum abstract Order(Int) from Int {
-	
 	public var cluster:Int;
+	public var episode:Int;
 }
 class Gameinfo extends LumpBase
 {

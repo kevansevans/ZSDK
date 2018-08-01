@@ -1,6 +1,6 @@
 package;
 
-import lumps.game.Gameinfo;
+import lumps.g.Gameinfo;
 
 /**
  * ...

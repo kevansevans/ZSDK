@@ -1,4 +1,4 @@
-package lumps.graphics;
+package lumps.p;
 import lumps.LumpBase;
 
 /**

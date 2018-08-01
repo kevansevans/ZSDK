@@ -1,5 +1,6 @@
 package;
 
+import lumps.g.Gameinfo;
 import openfl.display.Sprite;
 import lime.system.System;
 import sys.FileSystem;
@@ -28,6 +29,8 @@ class Main extends Sprite
 		check_directories();
 		
 		Toolkit.init();
+		
+		var gameinfo = new Gameinfo();
 	}
 	function check_directories() 
 	{

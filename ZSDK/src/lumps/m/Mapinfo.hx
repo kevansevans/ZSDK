@@ -1,5 +1,6 @@
-package lumps.g;
-import flash.Vector;
+package lumps.m;
+
+import haxe.ds.Vector;
 
 /**
  * ...
@@ -9,11 +10,12 @@ enum abstract Order(Int) from Int {
 	public var cluster:Int;
 	public var episode:Int;
 }
-class Gameinfo extends LumpBase
+class Mapinfo extends LumpBase
 {
 	var definitions:Vector<Null<DefinitionBase>> = new Vector(11);
 	
 	var cluster:Cluster;
+	var episode:Episode;
 	
 	public function new() 
 	{
@@ -23,6 +25,11 @@ class Gameinfo extends LumpBase
 		cluster = new Cluster();
 		
 		definitions[Order.cluster] = cluster;
+	}
+	public function new_episode() {
+		episode = new Episode();
+		
+		definitions[Order.episode] = episode;
 	}
 }
 class Cluster extends DefinitionBase {
@@ -55,9 +62,40 @@ class Cluster extends DefinitionBase {
 	
 }
 class Episode extends DefinitionBase {
-	
-	public function new() {
+	public var clearepisodes:Bool = false;
+	public var episode:Null<String>;
+	public var ep_name:Null<String>;
+	public var lookup:Null<String>;
+	public var picname:Null<String>;
+	public var key:Null<String>;
+	public var remove:Bool = false;
+	public var noskillmenu:Bool = false;
+	public var optional:Bool = false;
+	public var extended:Bool = false;
+	public function new(_id:Int = 0) {
 		super();
+		id = _id;
+	}
+	override public function get_info():String 
+	{
+		var blockstring = '';
+		if (clearepisodes) blockstring += 'clearepisodes\n';
+		if (episode != null) {
+			if (blockstring != '') blockstring += '\n';
+			blockstring += 'episode $episode\n{\n'
+		} else {
+			return ("//ZSDK Error: This episode lump is incomplete");
+		}
+		if (ep_name != null) blockstring += '\tname = \"$ep_name\"\n';
+		if (lookup != null) blockstring += '\tlookup = \"$lookup\"\n';
+		if (picname != null) blockstring += '\tpicname = \"$picname\"\n';
+		if (key != null) blockstring += '\tkey = \"$key\"\n';
+		if (remove) blockstring += '\t$remove\n';
+		if (noskillmenu) blockstring += '\t$noskillmenu\n';
+		if (optional) blockstring += '\t$optional\n';
+		if (extended) blockstring += '\t$extended\n';
+		blockstring += '}';
+		return (blockstring);
 	}
 	
 }

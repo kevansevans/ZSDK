@@ -1,17 +1,17 @@
 package;
 
-import lumps.m.Mapinfo;
+import openfl.display.DisplayObject;
+import src.common.SVar;
 
 /**
  * ...
  * @author kevansevans
  */
-class Project 
+class Project extends DisplayObject
 {
-	var GameInfo:Mapinfo;
-	public function new() 
+	public function new(_name:String) 
 	{
-		
+		SVar.projectName = _name;
 	}
 	
 }

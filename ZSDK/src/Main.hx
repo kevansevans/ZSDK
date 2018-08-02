@@ -74,4 +74,11 @@ class Main extends Sprite
 		project = new Project(_name);
 		addChild(project);
 	}
+	function load_project(_name:String) {
+		removeChild(start_new);
+		removeChild(project_title);
+		
+		project = new Project(_name, true);
+		addChild(project);
+	}
 }

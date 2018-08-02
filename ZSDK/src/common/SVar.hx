@@ -12,6 +12,7 @@ class SVar
 	};
 	public static var projectName:String = "Untitled";
 	public static var backup_limit:Int = 5;
+	public static var log_session:Null<String>;
 	public function new() 
 	{
 		

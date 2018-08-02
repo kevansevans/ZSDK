@@ -1,6 +1,8 @@
 package;
 
 import openfl.display.DisplayObject;
+
+import export.GZDWad;
 import src.common.SVar;
 
 /**
@@ -9,9 +11,11 @@ import src.common.SVar;
  */
 class Project extends DisplayObject
 {
+	private var export:GZDWad;
 	public function new(_name:String) 
 	{
 		SVar.projectName = _name;
+		super();
 	}
 	
 }

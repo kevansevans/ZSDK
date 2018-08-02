@@ -24,58 +24,60 @@ enum abstract WadType(String) from String {
 class GZDWad 
 {
 	var zipEntries:List<Entry>;
+	var source_path:String;
+	var export_path:String;
 	public function new(_type:String) 
 	{
-		var dir = System.documentsDirectory + "/ZSDK/" + SVar.projectName;
+		source_path = System.documentsDirectory + "/ZSDK/" + SVar.projectName +"/src";
+		export_path = System.documentsDirectory + "/ZSDK/" + SVar.projectName +"/bin";
 		
-		zipEntries = new List<Entry>();
+		backup_old(_type);
 		
-		if (FileSystem.exists(dir + "/" + SVar.projectName + "." + _type + ".backup_3")) {
-			FileSystem.deleteFile(dir + "/" + SVar.projectName + "." + _type + ".backup_3");
-		}
-		if (FileSystem.exists(dir + "/" + SVar.projectName + "." + _type + ".backup_2")) {
-			FileSystem.rename(dir + "/" + SVar.projectName + "." + _type + ".backup_2", dir + "/" + SVar.projectName + "." + _type + ".backup_3");
-		}
-		if (FileSystem.exists(dir + "/" + SVar.projectName + "." + _type + ".backup_1")) {
-			FileSystem.rename(dir + "/" + SVar.projectName + "." + _type + ".backup_1", dir + "/" + SVar.projectName + "." + _type + ".backup_2");
-		}
-		if (FileSystem.exists(dir + "/" + SVar.projectName + "." + _type + ".backup_0")) {
-			FileSystem.rename(dir + "/" + SVar.projectName + "." + _type + ".backup_0", dir + "/" + SVar.projectName + "." + _type + ".backup_1");
-		}
-		if (FileSystem.exists(dir + "/" + SVar.projectName + "." + _type)) {
-			FileSystem.rename(dir + "/" + SVar.projectName + "." + _type, dir + "/" + SVar.projectName + "." + _type + ".backup_0");
-		}
+		zipEntries = new List();
+
+		add_files(source_path, "");
 		
-		add_files(dir, "");
-		
-		var out = File.write(dir + "/" + SVar.projectName + "." + _type, true);
+		var out = File.write(export_path + '/' + SVar.projectName + '.' + _type, true);
 		var writer = new Writer(out);
         writer.write(zipEntries);
         out.close();
 	}
 	function add_files(_path:String, _target:String) {
 		if (!FileSystem.exists(_path)) throw '$_path does not exist';
-		var _backupCheck = _path.substring(_path.length - 9, _path.length);
 		if (FileSystem.isDirectory(_path)) {
 			for (a in FileSystem.readDirectory(_path)) {
-				if (_backupCheck == ".backup_0" || _backupCheck == ".backup_1" || _backupCheck == ".backup_2" || _backupCheck == ".backup_3") continue;
 				add_files(_path + "/" + a, _target + "/" + a);
 			}
 		} else {
-			if (_backupCheck != ".backup_0" && _backupCheck != ".backup_1" && _backupCheck != ".backup_2" && _backupCheck != ".backup_3") {
-				var bytes = File.getBytes(_path);
-				var entry:Entry = {
-					fileName: _target.substr(1, _target.length),
-					fileSize: bytes.length,
-					fileTime: FileSystem.stat(_path).mtime,
-					compressed: false,
-					dataSize: 0,
-					data: bytes,
-					crc32: Crc32.make(bytes),
-				}
-				Tools.compress(entry, 9);
-				zipEntries.add(entry);
+			var bytes = File.getBytes(_path);
+			var entry:Entry = {
+				fileName: _target.substr(1, _target.length),
+				fileSize: bytes.length,
+				fileTime: FileSystem.stat(_path).mtime,
+				compressed: false,
+				dataSize: 0,
+				data: bytes,
+				crc32: Crc32.make(bytes),
 			}
+			Tools.compress(entry, 9);
+			zipEntries.add(entry);
+		}
+	}
+	function backup_old(_type:String) 
+	{
+		var backup:Int = SVar.backup_limit - 1;
+		if (FileSystem.exists(export_path + "/" + SVar.projectName + "." + _type + ".backup_" + SVar.backup_limit)) FileSystem.deleteFile(export_path + "/" + SVar.projectName + "." + _type + ".backup_" + SVar.backup_limit);
+		for (a in 0...SVar.backup_limit) {
+			var old_name = export_path + "/" + SVar.projectName + "." + _type + ".backup_" + backup;
+			var new_name = export_path + "/" + SVar.projectName + "." + _type + ".backup_" + (backup + 1);
+			trace(old_name, new_name);
+			if (FileSystem.exists(old_name)) {
+				FileSystem.rename(old_name, new_name);
+			}
+			--backup;
+		}
+		if (FileSystem.exists(export_path + "/" + SVar.projectName + "." + _type)) {
+			FileSystem.rename(export_path + "/" + SVar.projectName + "." + _type, export_path + "/" + SVar.projectName + "." + _type + ".backup_0");
 		}
 	}
 }

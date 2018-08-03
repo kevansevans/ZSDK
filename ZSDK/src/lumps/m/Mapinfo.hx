@@ -1,7 +1,5 @@
 package lumps.m;
 
-import haxe.ds.Vector;
-
 /**
  * ...
  * @author kevansevans
@@ -12,24 +10,69 @@ enum abstract Order(Int) from Int {
 }
 class Mapinfo extends LumpBase
 {
-	var definitions:Vector<Null<DefinitionBase>> = new Vector(11);
+	var clusters:Array<Cluster>;
+	var episodes:Array<Episode>;
+	var maps:Array<Mapdef>;
 	
-	var cluster:Cluster;
-	var episode:Episode;
+	var cluster_count:Int = 0;
+	var episode_count:Int = 0;
+	var map_count:Int = 0;
 	
 	public function new() 
 	{
-		super();
+		super("Mapinfo");
 	}
 	public function new_cluster() {
-		cluster = new Cluster();
-		
-		definitions[Order.cluster] = cluster;
+		clusters = new Array();
+		clusters[cluster_count] = new Cluster();
+	}
+	public function add_cluster() {
+		++cluster_count;
+		clusters[cluster_count] = new Cluster();
 	}
 	public function new_episode() {
-		episode = new Episode();
+		episodes = new Array();
+		episodes[episode_count] = new Episode(episode_count);
+	}
+	public function add_episode() {
+		++episode_count;
+		episodes[episode_count] = new Episode(episode_count);
+	}
+	public function new_map() {
+		maps = new Array();
+		maps[map_count] = new Mapdef(map_count);
+	}
+	public function add_map() {
+		++map_count;
+		maps[map_count] = new Mapdef(map_count);
+	}
+	override public function compile() 
+	{
+		super.compile();
 		
-		definitions[Order.episode] = episode;
+		if (clusters != null) {
+			for (a in clusters) {
+				blocktext += a;
+			}
+		}
+		if (Episode.clearepisodes) 
+		{
+			if (episodes != null && episodes.length > 0) {
+				blocktext += 'clearepisodes';
+				for (b in episodes) {
+					blocktext += b;
+				}
+			} else {
+				blocktext += "//ZSDK error: Can not compile Episode definitions. Clearepisodes used without defining new episodes";
+			}
+		} else {
+			for (b in episodes) {
+				blocktext += b;
+			}
+		}
+		
+		export();
+		
 	}
 }
 class Cluster extends DefinitionBase {
@@ -56,13 +99,13 @@ class Cluster extends DefinitionBase {
 		if (pic != null) blockstring += '\t$pic\n';
 		if (hub == true) blockstring += '\thub\n';
 		if (allowintermission == true) blockstring += '\tallowintermission\n';
-		blockstring += '}';
+		blockstring += '}/n';
 		return (blockstring);
 	}
 	
 }
 class Episode extends DefinitionBase {
-	public var clearepisodes:Bool = false;
+	public static var clearepisodes:Bool = false;
 	public var episode:Null<String>;
 	public var ep_name:Null<String>;
 	public var lookup:Null<String>;
@@ -79,13 +122,7 @@ class Episode extends DefinitionBase {
 	override public function get_info():String 
 	{
 		var blockstring = '';
-		if (clearepisodes) blockstring += 'clearepisodes\n';
-		if (episode != null) {
-			if (blockstring != '') blockstring += '\n';
-			blockstring += 'episode $episode\n{\n'
-		} else {
-			return ("//ZSDK Error: This episode lump is incomplete");
-		}
+		blockstring += 'episode $episode\n{\n';
 		if (ep_name != null) blockstring += '\tname = \"$ep_name\"\n';
 		if (lookup != null) blockstring += '\tlookup = \"$lookup\"\n';
 		if (picname != null) blockstring += '\tpicname = \"$picname\"\n';
@@ -94,15 +131,19 @@ class Episode extends DefinitionBase {
 		if (noskillmenu) blockstring += '\t$noskillmenu\n';
 		if (optional) blockstring += '\t$optional\n';
 		if (extended) blockstring += '\t$extended\n';
-		blockstring += '}';
+		blockstring += '}/n';
 		return (blockstring);
 	}
-	
 }
-class Map extends DefinitionBase {
+class Mapdef extends DefinitionBase {
+	public var maplump:Null<String>;
+	public var mapname:Null<String>;
+	public var lookup:Bool = false;
+	//map properties
 	
-	public function new() {
+	public function new(_id:Int = 0) {
 		super();
+		id = _id;
 	}
 	
 }

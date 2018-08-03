@@ -29,8 +29,8 @@ class GZDWad
 	public function new(_type:String, _launch:Bool = false) 
 	{
 		Log.event("Started compile: " + SVar.projectName);
-		source_path = System.documentsDirectory + "/ZSDK/" + SVar.projectName +"/src";
-		export_path = System.documentsDirectory + "/ZSDK/" + SVar.projectName +"/bin";
+		source_path = System.documentsDirectory + "/ZSDK/projects/" + SVar.projectName +"/src";
+		export_path = System.documentsDirectory + "/ZSDK/projects/" + SVar.projectName +"/bin";
 		Log.event("Source directory: " + source_path);
 		Log.event("Export directory: " + export_path);
 		

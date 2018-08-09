@@ -1,12 +1,12 @@
-package lumps.p;
-import lumps.LumpBase;
+package lumps.graphic.p;
+import lumps.Lump;
 
 /**
  * ...
  * @author kevansevans
  * 
  */
-class Playpal extends LumpBase
+class Playpal extends Lump
 {
 
 	public function new() 

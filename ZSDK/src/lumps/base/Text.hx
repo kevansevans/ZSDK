@@ -4,6 +4,9 @@ import sys.FileSystem;
 import lime.system.System;
 import sys.io.File;
 
+import src.common.SVar;
+import common.Log;
+
 /**
  * ...
  * @author kevansevans
@@ -18,9 +21,9 @@ class Text extends Lump
 		super(_lumpname, _directory);
 		filename = System.documentsDirectory + "ZSDK/projects/" + SVar.projectName + "/src/" + directory + "/" + lumpname + ".txt";
 	}
-	override public function compile() 
+	override public function export() 
 	{
-		super.compile();
+		super.export();
 		
 		if (FileSystem.exists(filename)) FileSystem.deleteFile(filename);
 		var out = File.append(filename, true);

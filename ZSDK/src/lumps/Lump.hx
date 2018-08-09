@@ -19,6 +19,9 @@ class Lump
 	{
 		lumpname = _lumpname;
 		directory = _directory;
+		#if debug
+		haschanged = true; //set to true so under testing environments, this will always export
+		#end
 	}
 	public function retrieve():String
 	{

@@ -1,13 +1,11 @@
-package lumps.m;
+package lumps.plaintext.m;
+
+import lumps.base.Text;
 
 /**
  * ...
  * @author kevansevans
  */
-enum abstract Order(Int) from Int {
-	public var cluster:Int;
-	public var episode:Int;
-}
 class Mapinfo extends Text
 {
 	var clusters:Array<Cluster>;
@@ -47,6 +45,7 @@ class Mapinfo extends Text
 		maps[map_count] = new Mapdef(map_count);
 	}
 	override public function compile() {
+		
 		super.compile();
 		
 		if (clusters != null) {

@@ -1,5 +1,7 @@
 package lumps.plaintext.g;
 
+import haxe.ds.Vector;
+
 import lumps.base.Plaintext;
 
 /**
@@ -35,15 +37,46 @@ enum abstract FTP_IWAD(String) from String {
 	public var advOfSqr:String = "square1.pk3";
 	public var delaweare:String = "delaweare.wad";
 }
+enum abstract Startup(String) from String {
+	public var Doom:String;
+	public var Heretic:String;
+	public var Strife:String;
+}
 class Gameinfo extends Plaintext 
 {
-
+	public var iwad:Null<String>;
+	public var load:Array<String>;
+	public var nospriterename:Bool = false;
+	public var startuptitle:Null<String>;
+	public var startupcolors:Vector<Null<Int>> = new Vector(2);
+	public var startuptype:Null<String>;
+	public var startupsong:Null<String>;
 	public function new(_lumpname:String, _directory:String="") 
 	{
 		super(_lumpname, _directory);
 	}
+	public function add_load(_file:String) {
+		if (load == null) {
+			load = new Array();
+		}
+		load.push(_file);
+	}
 	override public function compile() 
 	{
 		super.compile();
+		
+		if (iwad != null) blocktext += 'IWAD = \"$iwad\"\n'; 
+		if (load != null) {
+			blocktext += 'LOAD = ';
+			for (a in load) {
+				blocktext += '\"$a",';
+			}
+			blocktext = blocktext.substring(blocktext.length -1, blocktext.length); //simple way to remove the last comma in the string;
+			blocktext += '\n';
+		}
+		if (nospriterename == true) blocktext += 'NOSPRITERENAME\n';
+		if (startupcolors[0] != null && startupcolors[1] != null) blocktext += 'STARTUPCOLORS = \"$startupcolors[0]\", \"$startupcolors[1]\"\n';
+		if (startuptype != null) blocktext += 'STARTUPTYPE = \"$startuptype\"\n';
+		if (startuptype != null) blocktext += 'STARTUPSONG = \"$startupsong\"\n';
 	}
 }

@@ -1,6 +1,6 @@
 package lumps.plaintext.d;
 
-import lumps.base.Text;
+import lumps.base.Plaintext;
 
 /**
  * ...
@@ -8,7 +8,7 @@ import lumps.base.Text;
  * 
  * this one's gonna be a doozy
  */
-class Decorate extends Text 
+class Decorate extends Plaintext 
 {
 
 	public function new(_lumpname:String, _directory:String="") 

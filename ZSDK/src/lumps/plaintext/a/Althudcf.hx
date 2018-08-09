@@ -1,12 +1,12 @@
 package lumps.plaintext.a;
 
-import lumps.base.Text;
+import lumps.base.Plaintext;
 
 /**
  * ...
  * @author kevansevans
  */
-class Althudcf extends Text 
+class Althudcf extends Plaintext 
 {
 
 	public function new(_lumpname:String, _directory:String="") 

@@ -11,7 +11,7 @@ import common.Log;
  * ...
  * @author kevansevans
  */
-class Text extends Lump
+class Plaintext extends Lump
 {
 	public var blocktext:String = "//Lump generated with ZSDK";
 	public var id:Int; //If a lump allows for multiple definitions, IE custer 1, cluster 2, cluster 3, this var is for tracking that value

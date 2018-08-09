@@ -1,6 +1,6 @@
 package lumps.plaintext.g;
 
-import lumps.base.Text;
+import lumps.base.Plaintext;
 
 /**
  * ...
@@ -35,11 +35,15 @@ enum abstract FTP_IWAD(String) from String {
 	public var advOfSqr:String = "square1.pk3";
 	public var delaweare:String = "delaweare.wad";
 }
-class Gameinfo extends Text 
+class Gameinfo extends Plaintext 
 {
 
 	public function new(_lumpname:String, _directory:String="") 
 	{
 		super(_lumpname, _directory);
+	}
+	override public function compile() 
+	{
+		super.compile();
 	}
 }

@@ -1,12 +1,12 @@
 package lumps.plaintext.c;
 
-import lumps.base.Text;
+import lumps.base.Plaintext;
 
 /**
  * ...
  * @author kevansevans
  */
-class Cvarinfo extends Text 
+class Cvarinfo extends Plaintext 
 {
 
 	public function new(_lumpname:String, _directory:String="") 

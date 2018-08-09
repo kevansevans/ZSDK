@@ -1,12 +1,12 @@
 package lumps.plaintext.d;
 
-import lumps.base.Text;
+import lumps.base.Plaintext;
 
 /**
  * ...
  * @author kevansevans
  */
-class Decaldef extends Text 
+class Decaldef extends Plaintext 
 {
 
 	public function new(_lumpname:String, _directory:String="") 

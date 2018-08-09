@@ -1,12 +1,12 @@
 package lumps.plaintext.a;
 
-import lumps.base.Text;
+import lumps.base.Plaintext;
 
 /**
  * ...
  * @author kevansevans
  */
-class Animdefs extends Text 
+class Animdefs extends Plaintext 
 {
 
 	public function new(_lumpname:String, _directory:String="") 

@@ -1,12 +1,12 @@
 package lumps.plaintext.f;
 
-import lumps.base.Text;
+import lumps.base.Plaintext;
 
 /**
  * ...
  * @author kevansevans
  */
-class Fontdefs extends Text 
+class Fontdefs extends Plaintext 
 {
 
 	public function new(_lumpname:String, _directory:String="") 

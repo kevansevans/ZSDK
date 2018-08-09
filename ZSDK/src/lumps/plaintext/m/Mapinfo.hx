@@ -1,12 +1,12 @@
 package lumps.plaintext.m;
 
-import lumps.base.Text;
+import lumps.base.Plaintext;
 
 /**
  * ...
  * @author kevansevans
  */
-class Mapinfo extends Text
+class Mapinfo extends Plaintext
 {
 	var clusters:Array<Cluster>;
 	var episodes:Array<Episode>;

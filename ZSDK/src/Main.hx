@@ -1,10 +1,9 @@
 package;
 
-import haxe.ui.components.Label;
-import haxe.ui.core.MouseEvent;
-import haxe.ui.data.DataSource;
-import openfl.display.Sprite;
 import lime.system.System;
+import openfl.display.Sprite;
+import openfl.events.Event;
+import openfl.Lib;
 import sys.FileSystem;
 import sys.io.File;
 
@@ -14,10 +13,8 @@ import src.common.SVar;
 import haxe.ui.Toolkit;
 import haxe.ui.components.Button;
 import haxe.ui.components.TextField;
-import haxe.ui.components.DropDown;
-import haxe.ui.data.DataSource;
-import haxe.ui.components.VGrid;
 import haxe.ui.components.Column;
+import haxe.ui.core.MouseEvent;
 
 /**
  * ...
@@ -61,6 +58,14 @@ class Main extends Sprite
 				trace("Folder exists");
 			}
 		}
+		
+		#if (debug)
+			clear_home();
+			start_new_project("Debug Project Template");
+			project = new Project("Debug Project Template");
+			addChild(project);
+			project.align(Lib.current.stage.stageWidth, Lib.current.stage.stageHeight);
+		#end
 	}
 	function check_directories() 
 	{
@@ -82,19 +87,23 @@ class Main extends Sprite
 		out.writeString(SVar.data_readme);
 		out.close();
 		
-		removeChild(start_new);
-		removeChild(project_title);
-		removeChild(load_field);
+		clear_home();
 		
 		project = new Project(_name);
 		addChild(project);
 	}
 	function load_project(_name:String) {
-		removeChild(start_new);
-		removeChild(project_title);
-		removeChild(load_field);
+		clear_home();
 		
 		project = new Project(_name, true);
 		addChild(project);
+	}
+	function clear_home() {
+		removeChild(start_new);
+		removeChild(project_title);
+		removeChild(load_field);
+	}
+	function resize_stage(e:Event) {
+		project.align(Lib.current.stage.stageWidth, Lib.current.stage.stageHeight);
 	}
 }

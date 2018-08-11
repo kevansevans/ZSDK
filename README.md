@@ -1,6 +1,6 @@
 # ZSDK
 
-ZSDK is a project aimed to be a beginner friendly GZDoom based mod builder. It is not mean to be a replacement or competitor to Slade (Maybe even GZDoom Builder in the future) but act as a stepping stone in the future.
+ZSDK is a project aimed to be a beginner friendly GZDoom based mod builder. It is not meant to be a replacement or competitor to Slade (Maybe even GZDoom Builder in the future) but act as a stepping stone in the future.
 
 ZSDK is built in Haxe for easy cross platform deployment, though I don't recommend any platforms besides native. Haxelibs used are Lime, openFL, and Haxeui.
 

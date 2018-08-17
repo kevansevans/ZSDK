@@ -93,6 +93,8 @@ class Main extends Sprite
 		addChild(project);
 	}
 	function load_project(_name:String) {
+		if (!FileSystem.isDirectory(System.documentsDirectory + "/ZSDK/projects/" + _name)) return;
+		
 		clear_home();
 		
 		project = new Project(_name, true);

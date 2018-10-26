@@ -61,6 +61,15 @@ class Gameinfo extends Plaintext
 		}
 		load.push(_file);
 	}
+	/*
+	public function set_color_enum(_enum:StartupColors) {
+		startupcolors[0] = _enum[0];
+		startupcolors[1] = _enum[1];
+	}
+	public function set_color_custom(_fore:Int, _back:Int) {
+		startupcolors[0] = _fore;
+		startupcolors[1] = _back;
+	}*/
 	override public function compile() 
 	{
 		super.compile();

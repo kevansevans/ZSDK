@@ -1,5 +1,7 @@
 package src.common;
+
 import openfl.utils.Object;
+import openfl.text.TextFormat;
 
 /**
  * ...
@@ -18,5 +20,7 @@ class SVar
 	{
 		
 	}
-	
+	public static inline function GZD_Sys_Font(_color:Int):TextFormat {
+		return (new TextFormat(null, 12, _color, true));
+	}
 }

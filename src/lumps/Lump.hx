@@ -14,7 +14,7 @@ class Lump
 	public var directory:String;
 	public var filename:String;
 	public var fileloc:String;
-	public var haschanged:Bool = false; //simple check so compiler doesn't have to remake every file
+	public var haschanged:Bool = true; //simple check so compiler doesn't have to remake every file
 	public function new(_lumpname:String, _directory:String = "") 
 	{
 		lumpname = _lumpname;

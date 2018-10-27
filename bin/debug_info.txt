@@ -1,0 +1,5 @@
+{
+	"hotfix": 0,
+	"patch": 0,
+	"version": 0
+}

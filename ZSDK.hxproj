@@ -28,7 +28,7 @@
     <option noInlineOnDebug="False" />
     <option mainClass="ApplicationMain" />
     <option enabledebug="True" />
-    <option additional="--macro openfl._internal.macros.ExtraParams.include()&#xA;--macro lime._internal.macros.DefineMacro.run()&#xA;--remap flash:openfl" />
+    <option additional="--macro openfl._internal.macros.ExtraParams.include()&#xA;--macro lime._internal.macros.DefineMacro.run()&#xA;--remap flash:openfl&#xA;-debug " />
   </build>
   <!-- haxelib libraries -->
   <haxelib>

@@ -18,6 +18,7 @@ enum abstract Highlight(Int) from Int {
 	var line:Int;
 	var keyword:Int;
 	var multiple:Int;
+	var line_select:Int;
 }
 class TextBox extends Sprite 
 {
@@ -48,6 +49,7 @@ class TextBox extends Sprite
 		
 		hl_box = new Shape();
 		addChild(hl_box);
+		if (highlight_mode == Highlight.line_select) hl_box.addEventListener(MouseEvent.CLICK, getMonoIndex);
 		
 		box.graphics.clear();
 		box.graphics.lineStyle(2, 0);
@@ -64,6 +66,7 @@ class TextBox extends Sprite
 		field = new TextField();
 		field.wordWrap = false;
 		addChild(field);
+		field.mouseEnabled = false;
 		field.defaultTextFormat = font;
 		field.width = box.width;
 		field.height = box.height;
@@ -78,13 +81,19 @@ class TextBox extends Sprite
 			hl_box.graphics.clear();
 		});
 	}
+	
+	function getMonoIndex(e:MouseEvent):Void 
+	{
+		var mono_loc:Point = get_mono_mouse_pos(this.mouseX, this.mouseY);
+		trace(mono_loc.y);
+	}
 	function hightlight(e:MouseEvent):Void 
 	{
 		var mono_loc:Point = get_mono_mouse_pos(this.mouseX, this.mouseY);
 		switch (highlight_mode) {
 			case Highlight.none :
 				return;
-			case Highlight.line :
+			case Highlight.line | Highlight.line_select :
 				line_highlight(mono_loc, 0x00FF00);
 		}
 	}

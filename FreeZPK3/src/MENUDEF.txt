@@ -1,0 +1,30 @@
+//This lump was made for FreeZPK3.
+//More info on MENUDEF can be found here https://zdoom.org/wiki/MENUDEF
+//Values in brackets [] are optional values 
+
+DefaultListMenu
+{
+	//All menus will inherit properties defined in here.Local ones can be 
+	//defined in separate menus
+	
+	//Sets the font for menus to use.
+	//		Font name		[Font color]		[Highlight color]
+	Font	"CONFONT",		"Red",				"White"
+	
+	//Change the offset of the block;
+	//			X Pos	Y Pos
+	Position 	97, 	72
+	
+	//Sets the menu cursor
+	//			Asset Name		X pos	Y pos
+	Selector 	"FREECURB", 	-32, 	0
+}
+ListMenu "MainMenu"
+{
+	TextItem "New Game (a)", 		"a",	 	"PlayerclassMenu"
+	TextItem "More Info (b)", 		"b", 		"ReadThisMenu"
+	TextItem "Load a save (c)", 	"c", 		"LoadGameMenu"
+	TextItem "Make a save (d)", 	"d", 		"SaveGameMenu"
+	TextItem "ZDoom options (e)", 	"e", 		"OptionsMenu"
+	TextItem "Exit Engine (f)", 	"f", 		"QuitMenu"
+}

@@ -4,3 +4,7 @@ older/
 old/
 
 bin/
+
+*.dbs
+
+*.bak

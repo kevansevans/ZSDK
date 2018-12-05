@@ -40,3 +40,41 @@ texture PUR64C, 64, 64
 	Patch PUR64A, 0, 0
 	Patch DIVWHT64, 0, 0
 }
+texture YLW64A, 64, 64
+{
+	Patch YLW64A, 0, 0
+}
+texture YLW64B, 64, 64
+{
+	Patch YLW64A, 0, 0
+	Patch DIVBLK64, 0, 0
+}
+texture YLW64C, 64, 64
+{
+	Patch YLW64A, 0, 0
+	Patch DIVWHT64, 0, 0
+}
+texture GRY64A, 64, 64
+{
+	Patch GRY64A, 0, 0
+}
+texture GRY64B, 64, 64
+{
+	Patch GRY64A, 0, 0
+	Patch DIVBLK64, 0, 0
+}
+texture GRY64C, 64, 64
+{
+	Patch GRY64A, 0, 0
+	Patch DIVWHT64, 0, 0
+}
+texture WHT64, 64, 64
+{
+	Patch WHITE64, 0, 0
+	Patch DIVBLK64, 0, 0
+}
+texture BLK64, 64, 64
+{
+	Patch BLACK64, 0, 0
+	Patch DIVWHITE64, 0, 0
+}

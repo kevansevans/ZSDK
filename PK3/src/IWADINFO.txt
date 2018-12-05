@@ -1,0 +1,10 @@
+IWad
+{
+	Name = "ZSDK"
+	Autoname = "ZSDK.ipk3"
+	Game = "Doom"
+	Config = "ZSDK_Placeholder"
+	IWADName = "ZSDK.ipk3"
+	//MustContain = ""
+	//BannerColors = "32 54 43", "c6 dc d1"
+}

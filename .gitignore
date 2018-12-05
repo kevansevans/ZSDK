@@ -8,3 +8,7 @@ bin/
 *.dbs
 
 *.bak
+
+*.backup1
+
+*.backup2

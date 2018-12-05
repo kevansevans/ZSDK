@@ -1,0 +1,42 @@
+texture GRN64A, 64, 64
+{
+	Patch GRN64A, 0, 0
+}
+texture GRN64B, 64, 64
+{
+	Patch GRN64A, 0, 0
+	Patch DIVBLK64, 0, 0
+}
+texture GRN64C, 64, 64
+{
+	Patch GRN64A, 0, 0
+	Patch DIVWHT64, 0, 0
+}
+texture RED4A, 64, 64
+{
+	Patch RED64A, 0, 0
+}
+texture RED64B, 64, 64
+{
+	Patch RED64A, 0, 0
+	Patch DIVBLK64, 0, 0
+}
+texture RED64C, 64, 64
+{
+	Patch RED64A, 0, 0
+	Patch DIVWHT64, 0, 0
+}
+texture PUR64A, 64, 64
+{
+	Patch PUR64A, 0, 0
+}
+texture PUR64B, 64, 64
+{
+	Patch PUR64A, 0, 0
+	Patch DIVBLK64, 0, 0
+}
+texture PUR64C, 64, 64
+{
+	Patch PUR64A, 0, 0
+	Patch DIVWHT64, 0, 0
+}

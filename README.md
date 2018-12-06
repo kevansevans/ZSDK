@@ -14,7 +14,7 @@ ZSDK IDE is the editor used as a begginer friendly approach to building a GZDoom
 ***
 # Progress
 #### ZSDK.pk3
-* 31 textures for mapping
+* 33 textures for mapping
 * Main menu placeholder
 
 #### ZSDK.wad

@@ -1,5 +1,50 @@
 //96 x 96 (Generic doom sized door)
-texture DOOR96A, 96, 96 //unlocked
+texture D_UNLKDA, 96, 96 //unlocked
 {
 	patch DR96X96, 0, 0
+	patch UNLOCKED, 44, 2
+}
+texture D_KEYA, 96, 96 //Locked with key
+{
+	patch DR96X96, 0, 0
+	patch LOCKEDKY, 44, 2
+}
+texture D_SWTCHA, 96, 96 //Locked with switch
+{
+	patch DR96X96, 0, 0
+	patch LOCKEDSW, 44, 2
+}
+texture D_SCRPTA, 96, 96 //Locked with script
+{
+	patch DR96X96, 0, 0
+	patch LOCKEDSC, 44, 2
+}
+//Key icons
+texture KEY_ANY, 8, 16
+{
+	patch d_keyany, 0, 0
+}
+texture KEY_BLU, 8, 16
+{
+	patch d_keyblu, 0, 0
+}
+texture KEY_RED, 8, 16
+{
+	patch d_keyred, 0, 0
+}
+texture KEY_CYN, 8, 16
+{
+	patch d_keycyn, 0, 0
+}
+texture KEY_GRN, 8, 16
+{
+	patch d_keygrn, 0, 0
+}
+texture KEY_PNK, 8, 16
+{
+	patch d_keypnk, 0, 0
+}
+texture KEY_YLW, 8, 16
+{
+	patch d_keyylw, 0, 0
 }

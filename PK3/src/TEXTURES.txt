@@ -1,80 +1,80 @@
-texture GRN64A, 64, 64
+//RED
+texture RED64A, 64, 64
 {
-	Patch GRN64A, 0, 0
-}
-texture GRN64B, 64, 64
-{
-	Patch GRN64A, 0, 0
-	Patch DIVBLK64, 0, 0
-}
-texture GRN64C, 64, 64
-{
-	Patch GRN64A, 0, 0
-	Patch DIVWHT64, 0, 0
-}
-texture RED4A, 64, 64
-{
-	Patch RED64A, 0, 0
+	patch RED64, 0, 0
 }
 texture RED64B, 64, 64
 {
-	Patch RED64A, 0, 0
+	patch RED64, 0, 0
 	Patch DIVBLK64, 0, 0
 }
 texture RED64C, 64, 64
 {
-	Patch RED64A, 0, 0
+	patch RED64, 0, 0
 	Patch DIVWHT64, 0, 0
 }
-texture PUR64A, 64, 64
+texture RED64D, 64, 64
 {
-	Patch PUR64A, 0, 0
+	patch RED64, 0, 0
+	Patch DIVALP64, 0, 0
 }
-texture PUR64B, 64, 64
-{
-	Patch PUR64A, 0, 0
-	Patch DIVBLK64, 0, 0
-}
-texture PUR64C, 64, 64
-{
-	Patch PUR64A, 0, 0
-	Patch DIVWHT64, 0, 0
-}
+//YELLOW
 texture YLW64A, 64, 64
 {
-	Patch YLW64A, 0, 0
+	patch YLW64, 0, 0
 }
 texture YLW64B, 64, 64
 {
-	Patch YLW64A, 0, 0
+	patch YLW64, 0, 0
 	Patch DIVBLK64, 0, 0
 }
 texture YLW64C, 64, 64
 {
-	Patch YLW64A, 0, 0
+	patch YLW64, 0, 0
 	Patch DIVWHT64, 0, 0
 }
-texture GRY64A, 64, 64
+texture YLW64D, 64, 64
 {
-	Patch GRY64A, 0, 0
+	patch YLW64, 0, 0
+	Patch DIVALP64, 0, 0
 }
-texture GRY64B, 64, 64
+//BLUE
+texture BLU64A, 64, 64
 {
-	Patch GRY64A, 0, 0
+	patch BLU64, 0, 0
+}
+texture BLU64B, 64, 64
+{
+	patch BLU64, 0, 0
 	Patch DIVBLK64, 0, 0
 }
-texture GRY64C, 64, 64
+texture BLU64C, 64, 64
 {
-	Patch GRY64A, 0, 0
+	patch BLU64, 0, 0
 	Patch DIVWHT64, 0, 0
 }
-texture WHT64, 64, 64
+texture BLU64D, 64, 64
+{
+	patch BLU64, 0, 0
+	Patch DIVALP64, 0, 0
+}
+//WHITE
+texture WHT64A, 64, 64
+{
+	Patch WHITE64, 0, 0
+}
+texture WHT64B, 64, 64
 {
 	Patch WHITE64, 0, 0
 	Patch DIVBLK64, 0, 0
 }
-texture BLK64, 64, 64
+//BLACK
+texture BLK64A, 64, 64
 {
 	Patch BLACK64, 0, 0
-	Patch DIVWHITE64, 0, 0
+}
+texture BLK64B, 64, 64
+{
+	Patch BLACK64, 0, 0
+	Patch DIVWHT64, 0, 0
 }

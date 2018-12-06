@@ -1,0 +1,5 @@
+//96 x 96 (Generic doom sized door)
+texture DOOR96A, 96, 96 //unlocked
+{
+	patch DR96X96, 0, 0
+}

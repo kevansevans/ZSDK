@@ -7,12 +7,28 @@ texture PORTALBL, 32, 32 {
 texture PORTALOR, 32, 32 {
 	patch portalor, 0, 0
 }
-texture FLRHEAL, 32, 32 {
-	patch HEAL, 0, 0
-}
-texture FLRHURT, 32, 32 {
-	patch HURT, 0, 0
-}
 texture FIXME, 64, 64 {
 	patch FIXMEA, 0, 0
+}
+//LIQUIDS
+texture WATER, 32, 32 {
+	patch LIQUIDA, 0, 0
+}
+texture WATERHRT, 32, 32 {
+	patch LIQUIDA, 0, 0
+	patch OWIE, 6, 4
+}
+texture LAVA, 32, 32 {
+	patch LIQUIDB, 0, 0
+}
+texture LAVAHRT, 32, 32 {
+	patch LIQUIDB, 0, 0
+	patch OWIE, 6, 4
+}
+texture TOXIC, 32, 32 {
+	patch LIQUIDC, 0, 0
+}
+texture TOXICHRT, 32, 32 {
+	patch LIQUIDC, 0, 0
+	patch OWIE, 6, 4
 }

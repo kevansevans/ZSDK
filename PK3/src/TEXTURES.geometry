@@ -17,6 +17,9 @@ texture RED64D, 64, 64
 {
 	patch RED64, 0, 0
 	Patch DIVALP64, 0, 0
+	{
+		style copyalpha
+	}
 }
 //YELLOW
 texture YLW64A, 64, 64
@@ -37,6 +40,9 @@ texture YLW64D, 64, 64
 {
 	patch YLW64, 0, 0
 	Patch DIVALP64, 0, 0
+	{
+		style copyalpha
+	}
 }
 //BLUE
 texture BLU64A, 64, 64
@@ -57,6 +63,9 @@ texture BLU64D, 64, 64
 {
 	patch BLU64, 0, 0
 	Patch DIVALP64, 0, 0
+	{
+		style copyalpha
+	}
 }
 //WHITE
 texture WHT64A, 64, 64

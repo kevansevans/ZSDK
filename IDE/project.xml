@@ -16,11 +16,12 @@
 	<!-- classpath, haxe libs -->
 	<source path="src" />
 	<haxelib name="openfl" />
+	<haxelib name="hxdoom" />
+	<haxelib name="haxeui-core" />
+	<haxelib name="haxeui-openfl" />
 	
 	<!-- assets -->
 	<icon path="assets/openfl.svg" />
-	<assets path="assets/img" rename="img" />
-	<assets path="assets/fonts" rename="fonts" embed="true" />
 	
 	<!-- optimize output
 	<haxeflag name="-dce full" /> -->

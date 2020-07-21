@@ -3,8 +3,6 @@ package lumps.base;
 import sys.FileSystem;
 import sys.io.File;
 
-import workbench.Project;
-
 /**
  * ...
  * @author kevansevans

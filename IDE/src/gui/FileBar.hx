@@ -90,6 +90,8 @@ class FileBar extends Sprite
 			}
 			about.addComponent(about_hxdoom);
 			
+			return; //Remove me when download is possible!
+			
 			#if !sys
 			about_separator = new MenuSeparator();
 			about.addComponent(about_separator);

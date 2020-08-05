@@ -11,8 +11,8 @@ import haxe.ui.containers.TabView;
 class WorkbenchTabs extends TabView
 {
 	//One Time tabs
-	var main:MainMenu;
-	var readme:ReadmeTab;
+	public var main:MainMenu;
+	public var readme:ReadmeTab;
 	
 	public function new() 
 	{

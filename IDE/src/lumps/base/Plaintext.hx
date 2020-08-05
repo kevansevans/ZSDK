@@ -1,7 +1,9 @@
 package lumps.base;
 
+#if sys
 import sys.FileSystem;
 import sys.io.File;
+#end
 
 /**
  * ...
@@ -15,9 +17,12 @@ class Plaintext extends Lump
 	public function new(_lumpname:String, _directory:String = "") 
 	{
 		super(_lumpname, _directory);
+		#if sys
 		filename = Project.project_name + "/src/" + directory + "/" + lumpname + ".txt";
 		fileloc = Project.project_name + "/src/" + directory + "/";
+		#end
 	}
+	#if sys
 	override public function export() 
 	{
 		super.export();
@@ -35,4 +40,5 @@ class Plaintext extends Lump
 			
 		}
 	}
+	#end
 }

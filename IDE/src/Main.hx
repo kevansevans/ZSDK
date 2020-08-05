@@ -7,6 +7,7 @@ import openfl.display.Sprite;
 import openfl.Lib;
 import haxe.ui.Toolkit;
 import lime.system.System;
+import openfl.events.Event;
 
 #if sys
 import sys.FileSystem;
@@ -42,6 +43,15 @@ class Main extends Sprite
 		#else
 		new_quick_project();
 		#end
+		
+		addEventListener(Event.RESIZE, resize);
+		resize();
+	}
+	
+	function resize(?e:Event):Void 
+	{
+		workbench.main.resize(stage.stageWidth, stage.stageHeight);
+		workbench.readme.resize(stage.stageWidth, stage.stageHeight);
 	}
 	
 	function new_project_scratch() {

@@ -1,7 +1,10 @@
 package lumps;
 
 import haxe.CallStack;
+
+#if sys
 import sys.FileSystem;
+#end
 
 
 /**
@@ -25,15 +28,17 @@ class Lump
 	}
 	public function retrieve():String
 	{
-		return("//Fixme!" + CallStack);
+		return("//Fixme!");
 	}
 	public function compile() {
 		if (!haschanged) return;
 	}
+	#if sys
 	public function export() {
 		if (!FileSystem.isDirectory(fileloc)) FileSystem.createDirectory(fileloc);
 		if (FileSystem.exists(filename)) FileSystem.deleteFile(filename);
 	}
+	#end
 	public function save() {
 		
 	}

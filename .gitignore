@@ -16,3 +16,5 @@ bin/
 *.backup3
 
 *.xcf
+
+IDE/gzdoom/

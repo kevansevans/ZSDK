@@ -1,21 +1,18 @@
 package;
 
-import gui.FileBar;
-import gui.items.WorkbenchTabs;
-import haxe.ui.containers.Box;
+import common.ClassLists;
+import haxe.Json;
+import haxe.ui.containers.TabView;
+import items.ClassBuilder;
+
 import openfl.display.Sprite;
-import openfl.Lib;
-import haxe.ui.Toolkit;
-import lime.system.System;
+import openfl.Assets;
 import openfl.events.Event;
 
-#if sys
-import sys.FileSystem;
-import sys.io.File;
-#end
+import haxe.ui.Toolkit;
+import haxe.ui.containers.menus.MenuBar;
+import haxe.ui.containers.menus.Menu;
 
-import handlers.Project;
-import handlers.Common;
 
 /**
  * ...
@@ -24,62 +21,46 @@ import handlers.Common;
 class Main extends Sprite 
 {
 	
-	//gui stuff
-	var filebar:FileBar;
-	var workbench:WorkbenchTabs;
+	public static var assetBar:TabView;
 	
-	public function new() 
-	{
+	var toolbar:MenuBar;
+	
+	var file:Menu;
+	
+	var testclass:ClassBuilder;
+	
+	public function new() {
+		
 		super();
+		
+		new ClassLists();
 		
 		Toolkit.init();
 		
-		filebar = new FileBar();
-		addChild(filebar);
+		toolbar = new MenuBar();
+		addChild(toolbar);
 		
-		#if sys //targets that cannot access sys will always boot into quick mode
-		Project.NEW_SCRATCH = new_project_scratch;
-		Project.NEW_QUICK = new_quick_project;
-		#else
-		new_quick_project();
-		#end
+		assetBar = new TabView();
+		addChild(assetBar);
 		
-		addEventListener(Event.RESIZE, resize);
+		file = new Menu();
+		file.text = "File";
+		toolbar.addComponent(file);
+		
+		testclass = new ClassBuilder("MyCustomClass", 0);
+		assetBar.addComponent(testclass);
+		assetBar.getPage(0).text = testclass.fileName;
+		
 		resize();
-	}
-	
-	function resize(?e:Event):Void 
-	{
-		workbench.main.resize(stage.stageWidth, stage.stageHeight);
-		workbench.readme.resize(stage.stageWidth, stage.stageHeight);
-	}
-	
-	function new_project_scratch() {
 		
-		var new_box:Box = new Box();
-		addChild(new_box);
-		new_box.x = 10;
-		new_box.y = 50;
-		new_box.backgroundColor = 0xBBBBBB;
-		new_box.width = 400;
-		new_box.height = 250;
 	}
 	
-	function new_quick_project() {
+	public function resize(?_event:Event) {
 		
-		workbench = new WorkbenchTabs();
-		addChild(workbench);
-		workbench.x = 10;
-		workbench.y = 50;
-		workbench.width = Lib.current.stage.stageWidth - 20;
-	}
-	
-	#if sys
-	function create_new_directories(_path:String) {
-		Common.SETTINGS.name = _path;
+		toolbar.width = stage.stageWidth;
 		
-		FileSystem.createDirectory(System.applicationStorageDirectory + "/ZSDK/" + _path);
-		FileSystem.createDirectory(System.documentsDirectory + "/ZSDK/" + _path);
+		testclass.resize();
+		
 	}
-	#end
+
 }
